@@ -1,0 +1,19 @@
+.about {
+  display: flex;
+  padding: 2rem 1rem;
+
+  img {
+    margin-right: 1rem;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  p {
+    flex-grow: 1;
+    line-height: 1.5;
+    margin: 0;
+  }
+}

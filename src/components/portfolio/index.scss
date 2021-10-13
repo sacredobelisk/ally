@@ -1,0 +1,9 @@
+.portfolio {
+  display: flex;
+  padding: 2rem;
+
+  .large {
+    flex-grow: 1;
+    text-align: center;
+  }
+}

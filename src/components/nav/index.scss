@@ -1,0 +1,71 @@
+nav {
+  background: url(./nav.jpg) no-repeat;
+  font-family: "Myriad Pro", Arial, Helvetica, sans-serif;
+  position: relative;
+
+  li {
+    bottom: 5px;
+    display: inline-block;
+    position: absolute;
+    text-transform: uppercase;
+
+    &.nav-about {
+      left: 47px;
+    }
+
+    &.nav-portfolio {
+      left: 178px;
+    }
+
+    &.nav-resume {
+      left: 327px;
+    }
+
+    &.nav-contact {
+      left: 459px;
+    }
+
+    a {
+      background-color: #fff;
+      color: #ba3279;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      position: relative;
+      text-decoration: none;
+      z-index: 1;
+
+      &:hover,
+      &.active {
+        text-shadow: 0px 2px 5px #333;
+      }
+    }
+
+    ul {
+      background-color: #fff;
+      display: none;
+      box-shadow: 0px 2px 5px #333;
+      height: 24px;
+      left: -13px;
+      opacity: 0;
+      margin: 0;
+      padding: 10px;
+      position: absolute;
+      transition: all 0.5s ease;
+      visibility: hidden;
+      width: 113px;
+
+      li {
+        bottom: auto;
+        position: relative;
+      }
+    }
+
+    &:hover > ul,
+    ul:hover {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+.resume {
+  background-color: #b61467;
+  margin: 1rem 0;
+
+  h3 {
+    font-size: 1.3rem;
+    margin: 1rem 0;
+    position: relative;
+    text-transform: uppercase;
+
+    &.experience::after,
+    &.education::after {
+      background-color: #fff;
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    &.experience::after {
+      height: 1.25rem;
+      width: 500px;
+    }
+
+    &.education::after {
+      height: 2.5rem;
+      width: 100%;
+    }
+
+    span {
+      background-color: #fff;
+      display: inline-block;
+      padding: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  .section {
+    background-color: #fff;
+	display: inline-block;
+    margin-left: 2rem;
+    padding: 1rem;
+
+    &.skills {
+      width: 780px;
+    }
+  }
+
+  .job,
+  .education {
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+@use "../../styles/variables";
+
+.contact {
+  align-items: center;
+  display: flex;
+  gap: 3rem;
+
+  ul {
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      padding: 0;
+
+      & + li {
+        margin-top: 1rem;
+      }
+
+      span {
+        color: variables.$white;
+        display: inline-block;
+        font-weight: 600;
+        width: 140px;
+      }
+
+      a {
+        color: variables.$white;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@include variables.mobile {
+  .contact {
+    flex-direction: column;
+
+    img {
+      max-width: 70%;
+    }
+
+    ul {
+      width: 100%;
+
+      li {
+        overflow-wrap: break-word;
+
+        span {
+          display: block;
+          margin-bottom: 3px;
+          width: auto;
+        }
+      }
+    }
+  }
+}

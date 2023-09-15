@@ -1,17 +1,36 @@
+@use "../../../../styles/variables";
+
+$overlay: rgba(0, 0, 0, 0.25);
+
+$col-count: 3;
+$row-count: 4;
+
+$gap: 2rem;
+$img-border: 1px;
+$img-height: 65px;
+$img-width: 69px;
+
+$height: calc(($row-count * ($img-height + (2 * $img-border))) + (($row-count - 1) * $gap));
+$container-height: calc($height + (2 * $gap));
+
+$width: calc(($col-count * ($img-width + (2 * $img-border))) + (($col-count - 1) * $gap));
+$container-width: calc($width + (2 * $gap));
+
 .thumbs {
-  background-color: #333;
+  background-color: variables.$mine-shaft;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  flex-flow: row wrap;
+  justify-content: space-between;
   margin: 0;
-  padding: 1rem 0 1rem 1rem;
-  width: 255px;
+  padding: calc($gap / 2);
 
   li {
+    border: $img-border solid variables.$silver;
+    height: $img-height;
     list-style: none;
+    margin: calc($gap / 2);
     position: relative;
-    height: 65px;
-    width: 69px;
+    width: $img-width;
 
     img {
       position: relative;
@@ -19,19 +38,25 @@
     }
 
     &::after {
-      background-color: rgba(0, 0, 0, 0.25);
+      background-color: $overlay;
       content: "";
       display: block;
-      height: 65px;
+      height: $img-height;
       left: 0;
       position: absolute;
       top: 0;
-      width: 69px;
+      width: $img-width;
       z-index: 2;
     }
 
     &.active::after {
       display: none;
     }
+  }
+}
+
+@include variables.mobile {
+  .thumbs li {
+    margin: 0.7rem;
   }
 }

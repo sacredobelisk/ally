@@ -1,71 +1,204 @@
+@use "../../styles/variables";
+
+$border-size: 4px;
+$width: 29%;
+
 nav {
-  background: url(./nav.jpg) no-repeat;
-  font-family: "Myriad Pro", Arial, Helvetica, sans-serif;
-  position: relative;
+  display: flex;
+
+  ul {
+    align-items: flex-end;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0;
+  }
 
   li {
-    bottom: 5px;
-    display: inline-block;
-    position: absolute;
+    list-style: none;
     text-transform: uppercase;
 
-    &.nav-about {
-      left: 47px;
-    }
-
-    &.nav-portfolio {
-      left: 178px;
-    }
-
-    &.nav-resume {
-      left: 327px;
-    }
-
-    &.nav-contact {
-      left: 459px;
-    }
-
     a {
-      background-color: #fff;
-      color: #ba3279;
-      font-size: 1.2rem;
-      font-weight: 600;
-      letter-spacing: 1.5px;
+      color: variables.$white;
+      display: flex;
       position: relative;
       text-decoration: none;
-      z-index: 1;
 
       &:hover,
       &.active {
-        text-shadow: 0px 2px 5px #333;
+        color: variables.$dusty-gray;
       }
     }
+  }
+}
+
+@include variables.not-mobile {
+  nav {
+    ul {
+      gap: 2.5rem;
+      margin: 0 2rem 0 0;
+    }
+
+    li {
+      background-color: variables.$black-rose;
+      font-size: 1rem;
+      padding: 0 5px 5px;
+
+      border-left: $border-size solid variables.$black;
+      border-right: $border-size solid variables.$black;
+      border-top: $border-size solid variables.$black;
+      bottom: -$border-size;
+      position: relative;
+
+      a {
+        align-items: flex-end;
+        height: 100%;
+      }
+
+      &.nav-about a {
+        height: 2.2rem;
+      }
+
+      &.nav-retouching a {
+        height: 5.4rem;
+      }
+
+      &.nav-graphic-design a {
+        height: 1.9rem;
+      }
+
+      &.nav-resume,
+      &.nav-contact {
+        &::before {
+          background-color: variables.$black-rose;
+          border: 5px solid variables.$black;
+          border-bottom: 0;
+          content: "";
+          left: -5px;
+          position: absolute;
+        }
+      }
+
+      &.nav-resume {
+        &::before {
+          height: 15px;
+          top: -20px;
+          width: 2rem;
+        }
+
+        a {
+          height: 2.8rem;
+        }
+      }
+
+      &.nav-contact {
+        &::before {
+          height: 30px;
+          top: -35px;
+          width: 3.75rem;
+        }
+
+        a {
+          height: 2.4rem;
+        }
+      }
+    }
+  }
+}
+
+@include variables.mobile {
+  nav {
+    background: variables.$black;
+    background: linear-gradient(180deg, #3f1325 0%, variables.$black-rose 100%);
+    height: 178px;
+    width: 100%;
 
     ul {
-      background-color: #fff;
-      display: none;
-      box-shadow: 0px 2px 5px #333;
-      height: 24px;
-      left: -13px;
-      opacity: 0;
+      align-content: space-around;
+      gap: 0rem;
+      justify-content: center;
       margin: 0;
-      padding: 10px;
-      position: absolute;
-      transition: all 0.5s ease;
-      visibility: hidden;
-      width: 113px;
+      position: relative;
+      width: 100%;
 
       li {
-        bottom: auto;
-        position: relative;
-      }
-    }
+        font-size: 0.8rem;
+        height: 4rem;
+        padding: 0;
+        text-align: center;
+        max-width: $width;
+        min-width: $width;
+        width: $width;
 
-    &:hover > ul,
-    ul:hover {
-      display: block;
-      opacity: 1;
-      visibility: visible;
+        a {
+          align-items: center;
+          height: calc(4rem - $border-size);
+          justify-content: center;
+        }
+
+        &.nav-about,
+        &.nav-graphic-design {
+          border-left: $border-size solid variables.$black;
+          border-right: $border-size solid variables.$black;
+          border-top: $border-size solid variables.$black;
+
+          &::before {
+            background-color: variables.$black;
+            content: "";
+            position: absolute;
+            height: $border-size;
+            top: calc(4rem + 11px);
+            width: calc(((100% - ($width * 3)) / 2) - (2 * $border-size) + 1px);
+          }
+        }
+
+        &.nav-resume,
+        &.nav-contact {
+          border-left: $border-size solid variables.$black;
+
+          &::before {
+            background-color: variables.$black;
+            content: "";
+            position: absolute;
+            height: $border-size;
+            width: calc(((100% - ($width * 2)) / 2) - $border-size + 1px);
+          }
+        }
+
+        &.nav-about {
+          &::before {
+            left: 0;
+          }
+        }
+
+        &.nav-retouching,
+        &.nav-resume {
+          border-bottom: $border-size solid variables.$black;
+          a {
+            top: $border-size;
+          }
+        }
+
+        &.nav-graphic-design {
+          &::before {
+            right: 0;
+          }
+        }
+
+        &.nav-resume {
+          &::before {
+            left: 0;
+            bottom: calc(4rem + 10px);
+          }
+        }
+        &.nav-contact {
+          border-right: $border-size solid variables.$black;
+          border-top: $border-size solid variables.$black;
+          &::before {
+            bottom: 10px;
+            right: 0;
+          }
+        }
+      }
     }
   }
 }

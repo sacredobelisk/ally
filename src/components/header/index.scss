@@ -1,13 +1,29 @@
+@use "../../styles/variables";
+
 header {
+  background: url(./nav-bg.jpg) repeat-x;
+  border-bottom: 4px solid variables.$black;
   display: flex;
-  height: 120px;
+  min-height: 130px;
+  flex-flow: row wrap;
 
   h1 {
-    margin: 0 0 0 6px;
-    width: 272px;
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    margin: 0;
   }
+}
 
-  nav {
-    width: 599px;
+@include variables.not-desktop {
+  header {
+    border-bottom: none;
+
+    h1 {
+      border-bottom: 4px solid variables.$black;
+      flex-flow: column nowrap;
+      height: 130px;
+    }
   }
 }

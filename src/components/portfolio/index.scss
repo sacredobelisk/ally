@@ -1,9 +1,45 @@
+@use "../../styles/variables";
+
+@use "./components/thumbs/index.scss" as thumbs;
+
+$height: thumbs.$container-height;
+$width: thumbs.$container-width;
+
 .portfolio {
+  background-color: variables.$white;
   display: flex;
-  padding: 2rem;
+  height: $height;
+
+  .thumbs-container {
+    width: $width;
+  }
 
   .large {
+    align-self: center;
+    display: flex;
     flex-grow: 1;
+    justify-content: center;
     text-align: center;
+
+    img {
+      max-height: $height;
+    }
+  }
+}
+
+@include variables.mobile {
+  main > .portfolio {
+    flex-direction: column;
+    height: auto;
+    margin: 0;
+
+    .thumbs-container {
+      order: 2;
+      width: 100%;
+    }
+
+    .large {
+      order: 1;
+    }
   }
 }

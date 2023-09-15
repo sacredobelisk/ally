@@ -1,60 +1,41 @@
+@use "../../styles/variables";
+
 .resume {
-  background-color: #b61467;
-  margin: 1rem 0;
+  background-color: variables.$white;
+  font-family: Palatino, "Times New Roman", Times, serif;
+  font-size: 1.2rem;
+  position: relative;
 
-  h3 {
-    font-size: 1.3rem;
-    margin: 1rem 0;
+  &::before {
+    background: variables.$black;
+    background: linear-gradient(90deg, variables.$black 0%, variables.$black-rose 100%);
+    content: "";
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 130px;
+    z-index: 1;
+  }
+
+  .resume-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-left: 130px;
+    padding: 2rem;
     position: relative;
-    text-transform: uppercase;
-
-    &.experience::after,
-    &.education::after {
-      background-color: #fff;
-      content: "";
-      display: block;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 1;
-    }
-
-    &.experience::after {
-      height: 1.25rem;
-      width: 500px;
-    }
-
-    &.education::after {
-      height: 2.5rem;
-      width: 100%;
-    }
-
-    span {
-      background-color: #fff;
-      display: inline-block;
-      padding: 1rem;
-      position: relative;
-      z-index: 2;
-    }
+    z-index: 2;
   }
+}
 
-  .section {
-    background-color: #fff;
-	display: inline-block;
-    margin-left: 2rem;
-    padding: 1rem;
-
-    &.skills {
-      width: 780px;
+@include variables.mobile {
+  .resume {
+    &::before {
+      display: none;
     }
-  }
 
-  .job,
-  .education {
-    margin-bottom: 1rem;
-
-    &:last-child {
-      margin-bottom: 0;
+    .resume-inner {
+      margin-left: 0;
     }
   }
 }

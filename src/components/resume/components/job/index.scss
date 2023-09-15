@@ -1,0 +1,24 @@
+@use "../../../../styles/variables";
+
+.job {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  .title {
+    color: variables.$black-rose;
+    font-weight: 600;
+  }
+}
+
+@include variables.mobile {
+  .job {
+    .dates {
+      font-weight: 600;
+    }
+    .company,
+    .location {
+      font-style: italic;
+    }
+  }
+}

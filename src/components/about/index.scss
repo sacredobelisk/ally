@@ -1,19 +1,26 @@
+@use "../../styles/variables";
+
 .about {
+  align-items: center;
   display: flex;
-  padding: 2rem 1rem;
-
-  img {
-    margin-right: 1rem;
-  }
-
-  div {
-    display: flex;
-    flex-direction: column;
-  }
+  gap: 3rem;
 
   p {
-    flex-grow: 1;
-    line-height: 1.5;
+    color: variables.$white;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.2;
     margin: 0;
+    min-width: 300px;
+  }
+}
+
+@include variables.mobile {
+  .about {
+    flex-direction: column;
+
+    img {
+      max-width: 95%;
+    }
   }
 }

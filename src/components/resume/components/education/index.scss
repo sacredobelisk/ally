@@ -1,0 +1,12 @@
+@use "../../../../styles/variables";
+
+.education {
+  .school {
+    color: variables.$black-rose;
+    font-weight: 600;
+  }
+
+  .degree {
+    font-weight: 600;
+  }
+}

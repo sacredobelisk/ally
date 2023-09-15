@@ -3,7 +3,7 @@ export type Image = {
   text: string;
 };
 
-export type PortfolioParams = { type: string };
+export type PortfolioParams = { portfolioType: "graphic-design" | "retouching" };
 
 export type ThumbProps = {
   activeThumb: Image;

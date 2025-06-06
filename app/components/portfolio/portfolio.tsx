@@ -1,25 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router";
-
+import { Thumbs } from "./components/thumbs/thumbs";
+import { type Image, type PortfolioParams } from "./types";
 import { designImages, retouchImages } from "./utils";
-import { Image, PortfolioParams } from "./types";
-import { Thumbs } from "./components/thumbs";
 
 import "./index.scss";
 
 export const Portfolio = () => {
   const { portfolioType } = useParams<PortfolioParams>();
 
-  const [images, setImages] = useState<Image[]>(portfolioType === "retouching" ? retouchImages : designImages);
+  const images = portfolioType === "retouching" ? retouchImages : designImages;
+
   const [activeImage, setActiveImage] = useState<Image>(images[0]);
-
-  useEffect(() => {
-    setImages(portfolioType === "retouching" ? retouchImages : designImages);
-  }, [portfolioType]);
-
-  useEffect(() => {
-    setActiveImage(images[0]);
-  }, [images]);
 
   return (
     <div className="portfolio" key={portfolioType}>

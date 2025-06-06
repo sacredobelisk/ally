@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Nav } from "../nav";
+import { Nav } from "../nav/nav";
 
 import logo from "./logo.png";
 

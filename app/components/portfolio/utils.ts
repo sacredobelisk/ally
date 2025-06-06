@@ -1,4 +1,4 @@
-import { Image } from "./types";
+import { type Image } from "./types";
 
 export const designImages: Image[] = [
   { filename: "llanerch-diner.jpg", text: "Llanerch Diner" },

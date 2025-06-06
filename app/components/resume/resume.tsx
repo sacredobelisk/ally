@@ -1,6 +1,6 @@
-import { Education } from "./components/education";
-import { Job } from "./components/job";
-import { ResumeSection } from "./components/section";
+import { Education } from "./components/education/education";
+import { Job } from "./components/job/job";
+import { ResumeSection } from "./components/section/section";
 
 import "./index.scss";
 

@@ -2,8 +2,6 @@ import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration }
 import type { Route } from "./+types/root";
 import { Header } from "./components/header/header";
 
-import "./index.css";
-
 import "./app.scss";
 
 export const links: Route.LinksFunction = () => [
@@ -29,7 +27,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <div id="root">{children}</div>
         <ScrollRestoration />
         <Scripts />
       </body>

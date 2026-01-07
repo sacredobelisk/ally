@@ -15,7 +15,6 @@ export default defineConfig([
   },
 
   tseslint.configs.recommended,
-
   pluginReact.configs.flat.recommended,
 
   { files: ["**/*.json"], plugins: { json }, language: "json/json", extends: ["json/recommended"] },
@@ -25,7 +24,6 @@ export default defineConfig([
   {
     rules: {
       "@typescript-eslint/no-explicit-any": "error",
-      // "import/no-default-export": "error",
       "linebreak-style": ["error", "windows"],
       "react/react-in-jsx-scope": "off",
       indent: ["error", 2],

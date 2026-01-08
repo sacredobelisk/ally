@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
-
+import { Link } from "react-router";
 import { Nav } from "../nav";
-
 import logo from "./logo.png";
+
 import "./index.scss";
 
 export const Header = () => (

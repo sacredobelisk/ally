@@ -1,5 +1,4 @@
 import { useParams } from "react-router";
-
 import { PortfolioParams, ThumbProps } from "../../types";
 
 import "./index.scss";

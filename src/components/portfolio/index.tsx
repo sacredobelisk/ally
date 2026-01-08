@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-
-import { designImages, retouchImages } from "./utils";
-import { Image, PortfolioParams } from "./types";
 import { Thumbs } from "./components/thumbs";
+import { Image, PortfolioParams } from "./types";
+import { designImages, retouchImages } from "./utils";
 
 import "./index.scss";
 

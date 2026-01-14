@@ -12,6 +12,10 @@
 /build
 /dist
 
+# React Router
+/.react-router/
+.react-router/
+
 /old
 
 # misc

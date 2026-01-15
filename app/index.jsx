@@ -1,14 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
-
-import { About } from "./components/about";
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router";
 import { App } from "./app";
+import { About } from "./components/about";
 import { Contact } from "./components/contact";
 import { Portfolio } from "./components/portfolio";
 import { Resume } from "./components/resume";
-
-import "./index.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

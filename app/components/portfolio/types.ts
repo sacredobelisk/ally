@@ -3,7 +3,12 @@ export type Image = {
   text: string;
 };
 
-export type PortfolioParams = { portfolioType: "graphic-design" | "retouching" };
+export enum PortfolioType {
+  GraphicDesign = "graphic-design",
+  Retouching = "retouching",
+}
+
+export type PortfolioParams = { portfolioType: PortfolioType };
 
 export type ThumbProps = {
   activeThumb: Image;

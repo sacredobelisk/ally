@@ -1,7 +1,6 @@
 import { Route } from "../../.react-router/types/app/routes/+types/portfolio";
-import { PortfolioType } from "../components/nav/types";
 import { Portfolio } from "../components/portfolio";
-import { Image } from "../components/portfolio/types";
+import { Image, PortfolioType } from "../components/portfolio/types";
 import { designImages, retouchImages } from "../components/portfolio/utils";
 
 export async function clientLoader({ params }: Route.ClientLoaderArgs): Promise<Image[]> {

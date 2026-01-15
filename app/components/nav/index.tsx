@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import { PortfolioType } from "./types";
+import { PortfolioType } from "../portfolio/types";
 
 import "./index.scss";
 

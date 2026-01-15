@@ -3,7 +3,7 @@ import { Portfolio } from "../components/portfolio";
 import { Image } from "../components/portfolio/types";
 import { designImages, retouchImages } from "../components/portfolio/utils";
 
-export async function clientLoader({ params }: Route.ClientLoaderArgs) {
+export async function clientLoader({ params }: Route.ClientLoaderArgs): Promise<Image[]> {
   const { portfolioType } = params;
   return portfolioType === "retouching" ? retouchImages : designImages;
 }
@@ -29,7 +29,7 @@ export function meta({ params }: Route.MetaArgs) {
 }
 
 export default function PortfolioPage({ loaderData, params }: Route.ComponentProps) {
-  return <Portfolio key={params.portfolioType} images={loaderData as unknown as Image[]} />;
+  return <Portfolio key={params.portfolioType} images={loaderData} />;
 }
 
 function capitalizeWords(str: string): string {

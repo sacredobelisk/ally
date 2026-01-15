@@ -1,4 +1,5 @@
 import { NavLink } from "react-router";
+import { PortfolioType } from "../portfolio/types";
 
 import "./index.scss";
 
@@ -10,11 +11,11 @@ export const Nav = () => (
           Home
         </NavLink>
       </li>
-      <li className="nav-retouching">
-        <NavLink to="/portfolio/retouching">Retouching</NavLink>
+      <li className={`nav-${PortfolioType.Retouching}`}>
+        <NavLink to={`/portfolio/${PortfolioType.Retouching}`}>Retouching</NavLink>
       </li>
-      <li className="nav-graphic-design">
-        <NavLink to="/portfolio/graphic-design">Graphic Design</NavLink>
+      <li className={`nav-${PortfolioType.GraphicDesign}`}>
+        <NavLink to={`/portfolio/${PortfolioType.GraphicDesign}`}>Graphic Design</NavLink>
       </li>
       <li className="nav-resume">
         <NavLink to="/resume">Resume</NavLink>

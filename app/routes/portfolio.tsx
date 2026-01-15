@@ -1,24 +1,25 @@
 import { Route } from "../../.react-router/types/app/routes/+types/portfolio";
 import { Portfolio } from "../components/portfolio";
-import { Image } from "../components/portfolio/types";
+import { Image, PortfolioType } from "../components/portfolio/types";
 import { designImages, retouchImages } from "../components/portfolio/utils";
 
+const descriptions: Record<string, string> = {
+  [PortfolioType.Retouching]:
+    "Explore Allison Weinreb O'Brien's photo retouching portfolio, featuring professional image enhancement and digital editing work.",
+  [PortfolioType.GraphicDesign]:
+    "View Allison Weinreb O'Brien's graphic design portfolio, showcasing branding, logos, and creative visual design projects.",
+};
+
 export async function clientLoader({ params }: Route.ClientLoaderArgs): Promise<Image[]> {
-  const { portfolioType } = params;
-  return portfolioType === "retouching" ? retouchImages : designImages;
+  const { portfolioType = PortfolioType.GraphicDesign } = params;
+  return portfolioType === PortfolioType.Retouching ? retouchImages : designImages;
 }
 
 export function meta({ params }: Route.MetaArgs) {
-  const type = params.portfolioType;
-  const descriptions: Record<string, string> = {
-    retouching:
-      "Explore Allison Weinreb O'Brien's photo retouching portfolio, featuring professional image enhancement and digital editing work.",
-    "graphic-design":
-      "View Allison Weinreb O'Brien's graphic design portfolio, showcasing branding, logos, and creative visual design projects.",
-  };
+  const type = params.portfolioType ?? PortfolioType.GraphicDesign;
 
   return [
-    { title: `${capitalizeWords(params.portfolioType.replaceAll("-", " "))} Portfolio - Allison Weinreb O'Brien` },
+    { title: `${capitalizeWords(type.replaceAll("-", " "))} Portfolio - Allison Weinreb O'Brien` },
     {
       name: "description",
       content:

@@ -7,8 +7,6 @@ import { Contact } from "./components/contact";
 import { Portfolio } from "./components/portfolio";
 import { Resume } from "./components/resume";
 
-import "./index.css";
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<App />}>

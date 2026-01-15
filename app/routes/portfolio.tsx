@@ -3,6 +3,13 @@ import { Portfolio } from "../components/portfolio";
 import { Image, PortfolioType } from "../components/portfolio/types";
 import { designImages, retouchImages } from "../components/portfolio/utils";
 
+const descriptions: Record<string, string> = {
+  [PortfolioType.Retouching]:
+    "Explore Allison Weinreb O'Brien's photo retouching portfolio, featuring professional image enhancement and digital editing work.",
+  [PortfolioType.GraphicDesign]:
+    "View Allison Weinreb O'Brien's graphic design portfolio, showcasing branding, logos, and creative visual design projects.",
+};
+
 export async function clientLoader({ params }: Route.ClientLoaderArgs): Promise<Image[]> {
   const { portfolioType = PortfolioType.GraphicDesign } = params;
   return portfolioType === PortfolioType.Retouching ? retouchImages : designImages;
@@ -10,12 +17,6 @@ export async function clientLoader({ params }: Route.ClientLoaderArgs): Promise<
 
 export function meta({ params }: Route.MetaArgs) {
   const type = params.portfolioType ?? PortfolioType.GraphicDesign;
-  const descriptions: Record<string, string> = {
-    [PortfolioType.Retouching]:
-      "Explore Allison Weinreb O'Brien's photo retouching portfolio, featuring professional image enhancement and digital editing work.",
-    [PortfolioType.GraphicDesign]:
-      "View Allison Weinreb O'Brien's graphic design portfolio, showcasing branding, logos, and creative visual design projects.",
-  };
 
   return [
     { title: `${capitalizeWords(type.replaceAll("-", " "))} Portfolio - Allison Weinreb O'Brien` },

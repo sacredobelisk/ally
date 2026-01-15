@@ -3,7 +3,11 @@ import { About } from "../components/about";
 export function meta() {
   return [
     { title: "About - Allison Weinreb O'Brien" },
-    { name: "description", content: "Personal Website of Allison Weinreb O'Brien, Graphic Designer" },
+    {
+      name: "description",
+      content:
+        "Learn about Allison Weinreb O'Brien, a creative graphic designer specializing in visual design, branding, and digital art.",
+    },
   ];
 }
 

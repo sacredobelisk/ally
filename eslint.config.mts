@@ -26,6 +26,8 @@ export default defineConfig([
   {
     files: ["**/.react-router/**/*.ts"],
     rules: {
+      semi: "off",
+      "@typescript-eslint/no-empty-object-type": "off",
       "@typescript-eslint/no-namespace": "off",
     },
   },

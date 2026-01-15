@@ -1,12 +1,13 @@
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
-import { Route } from "../.react-router/types/app/routes/+types/about";
+import { Route } from "../.react-router/types/app/+types/root";
 import { Header } from "./components/header";
 
 import "./app.scss";
 
 export const links: Route.LinksFunction = () => [
-  { rel: "apple-touch-icon", href: "/logo192.png" },
-  { rel: "icon", type: "image/png", href: "/logo192.png" },
+  { rel: "apple-touch-icon", href: "/favicon.ico" },
+  { rel: "icon", type: "image/png", href: "/favicon.ico" },
+  { rel: "manifest", href: "/manifest.json" },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -16,7 +17,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ba3279" />
-        <meta name="description" content="Personal Website of Allison Weinreb O'Brien, Graphic Designer" />
         <Meta />
         <Links />
       </head>

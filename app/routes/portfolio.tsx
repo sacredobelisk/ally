@@ -12,9 +12,9 @@ export async function clientLoader({ params }: Route.ClientLoaderArgs): Promise<
 export function meta({ params }: Route.MetaArgs) {
   const type = params.portfolioType ?? PortfolioType.GraphicDesign;
   const descriptions: Record<string, string> = {
-    retouching:
+    [PortfolioType.Retouching]:
       "Explore Allison Weinreb O'Brien's photo retouching portfolio, featuring professional image enhancement and digital editing work.",
-    "graphic-design":
+    [PortfolioType.GraphicDesign]:
       "View Allison Weinreb O'Brien's graphic design portfolio, showcasing branding, logos, and creative visual design projects.",
   };
 

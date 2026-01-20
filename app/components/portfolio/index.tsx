@@ -20,7 +20,7 @@ export const Portfolio = ({ images }: Props) => {
         <Thumbs activeThumb={activeImage} images={images} onHover={setActiveImage} />
       </div>
       <div className="large">
-        <img alt={activeImage.text} src={`/images/${portfolioType}/large/${activeImage.filename}`} />
+        <img alt={activeImage.text} loading="lazy" src={`/images/${portfolioType}/large/${activeImage.filename}`} />
       </div>
     </div>
   );

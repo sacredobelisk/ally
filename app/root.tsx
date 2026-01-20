@@ -21,8 +21,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <a className="skip-link" href="#main-content">
+          Skip to main content
+        </a>
         <Header />
-        <main>
+        <main id="main-content">
           {children}
           <ScrollRestoration />
           <Scripts />

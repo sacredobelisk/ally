@@ -4,7 +4,7 @@ import { PortfolioType } from "../portfolio/types";
 import "./index.scss";
 
 export const Nav = () => (
-  <nav>
+  <nav aria-label="Main navigation">
     <ul>
       <li className="nav-about">
         <NavLink to="/" end>

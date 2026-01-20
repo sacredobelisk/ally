@@ -17,15 +17,21 @@ export async function clientLoader({ params }: Route.ClientLoaderArgs): Promise<
 
 export function meta({ params }: Route.MetaArgs) {
   const type = params.portfolioType ?? PortfolioType.GraphicDesign;
+  const title = `${capitalizeWords(type.replaceAll("-", " "))} Portfolio - Allison Weinreb O'Brien`;
+  const description =
+    descriptions[type] ||
+    `View Allison Weinreb O'Brien's ${type} portfolio showcasing professional graphic design work.`;
 
   return [
-    { title: `${capitalizeWords(type.replaceAll("-", " "))} Portfolio - Allison Weinreb O'Brien` },
-    {
-      name: "description",
-      content:
-        descriptions[type] ||
-        `View Allison Weinreb O'Brien's ${type} portfolio showcasing professional graphic design work.`,
-    },
+    { title },
+    { name: "description", content: description },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: `https://www.allisonweinreb.com/portfolio/${type}` },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
   ];
 }
 

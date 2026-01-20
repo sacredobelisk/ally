@@ -20,6 +20,7 @@ npm run prettier-format # Format TypeScript/TSX files with Prettier
 ## Architecture
 
 ### Routing
+
 - React Router 7 with route definitions in `/app/routes.ts`
 - Routes use `index()` and `route()` functions
 - Portfolio page uses `clientLoader` for data loading
@@ -30,18 +31,21 @@ npm run prettier-format # Format TypeScript/TSX files with Prettier
   - `/portfolio/:portfolioType` → Portfolio (graphic-design or retouching)
 
 ### Directory Structure
+
 - `/app/components/` - Reusable React components, each with paired SCSS files
 - `/app/routes/` - Page-level route components
-- `/app/styles/` - Global SCSS variables and mixins (_colors.scss, _devices.scss)
+- `/app/styles/` - Global SCSS variables and mixins (\_colors.scss, \_devices.scss)
 - `/app/root.tsx` - Root layout with error boundary
 - `/public/images/` - Portfolio images organized by type
 
 ### Portfolio System
+
 - Two types defined in enum: `GraphicDesign` and `Retouching`
 - Portfolio data stored as static arrays in `/app/components/portfolio/utils.ts`
 - Types defined in `/app/components/portfolio/types.ts`
 
 ### Styling
+
 - SCSS with mobile-first responsive design
 - Breakpoint mixins in `/app/styles/_devices.scss`:
   - Mobile: max-width 480px
@@ -56,3 +60,4 @@ npm run prettier-format # Format TypeScript/TSX files with Prettier
 - **Line width**: 120 characters
 - **Line endings**: CRLF (Windows)
 - **No explicit `any`**: TypeScript strict mode enabled with `noImplicitAny`
+- **Alphabetize**: object key properties and html attributes where possible

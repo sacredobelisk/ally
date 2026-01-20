@@ -21,7 +21,7 @@ export const Contact = () => (
       </li>
       <li>
         <span>Email</span>
-        <a href="mailto:allyswo@gmail.com" aria-label="Send email to allyswo@gmail.com">
+        <a aria-label="Send email to allyswo@gmail.com" href="mailto:allyswo@gmail.com">
           allyswo@gmail.com
         </a>
       </li>

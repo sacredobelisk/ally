@@ -21,7 +21,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <a href="#main-content" className="skip-link">
+        <a className="skip-link" href="#main-content">
           Skip to main content
         </a>
         <Header />

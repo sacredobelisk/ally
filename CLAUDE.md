@@ -1,63 +1,118 @@
-# CLAUDE.md
+# Ally's Site
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Personal portfolio website for Allison Weinreb O'Brien, a graphic designer and retouch artist.
 
-## Project Overview
+## Project Purpose
 
-Ally is a portfolio website for a graphic designer built with React 19, React Router 7, TypeScript 5.9, and Vite 7.3. It's a client-side rendered (CSR) single-page application with no backend.
+A responsive, accessible single-page application showcasing:
 
-## Commands
+- Professional portfolios (Graphic Design & Retouching)
+- Resume/professional experience
+- Contact information
+- About page
 
-```bash
-npm start              # Start development server (Vite)
-npm run build          # Production build (outputs to /build/client)
-npm run lint           # Run ESLint
-npm run prettier-format # Format TypeScript/TSX files with Prettier
+Live at: `allisonweinreb.com`
+
+## Tech Stack
+
+| Category  | Technology                      |
+| --------- | ------------------------------- |
+| Framework | React Router 7 (meta-framework) |
+| Core      | React 19, TypeScript 5.9        |
+| Build     | Vite 7                          |
+| Styling   | Sass (SCSS)                     |
+| Linting   | ESLint 9, Prettier 3            |
+
+## Project Structure
+
+```
+app/
+├── routes.ts                    # Route definitions
+├── root.tsx                     # Root layout, error boundary
+├── app.scss                     # Global styles
+├── styles/                      # Shared SCSS utilities
+│   ├── _variables.scss          # Forwards colors & devices
+│   ├── _colors.scss             # Color palette
+│   └── _devices.scss            # Responsive breakpoint mixins
+├── routes/                      # Page components
+│   ├── about.tsx                # Home/about page (index route)
+│   ├── resume.tsx               # Resume page
+│   ├── portfolio.tsx            # Portfolio with clientLoader
+│   └── contact.tsx              # Contact page
+└── components/                  # Reusable components
+    ├── header/                  # Header with logo & nav
+    ├── nav/                     # Navigation links
+    ├── about/                   # About section
+    ├── contact/                 # Contact links
+    ├── portfolio/               # Portfolio display
+    │   ├── types.ts             # Image, PortfolioType types
+    │   ├── utils.ts             # Image data arrays
+    │   └── components/thumbs/   # Thumbnail gallery
+    └── resume/                  # Resume display
+        └── components/          # Job, Education, Section
+public/
+├── images/                      # Portfolio images (by type/size)
+├── favicon.ico
+└── manifest.json
 ```
 
-**Note:** No test framework is currently configured.
+## Essential Commands
 
-## Architecture
+```bash
+npm start            # Vite dev server
+npm run build        # Production build to /build
+npm run lint         # ESLint
+npm run prettier-format  # Format src/**/*.ts*
+```
 
-### Routing
+## Key Files
 
-- React Router 7 with route definitions in `/app/routes.ts`
-- Routes use `index()` and `route()` functions
-- Portfolio page uses `clientLoader` for data loading
-- Routes:
-  - `/` → About (index)
-  - `/resume` → Resume
-  - `/contact` → Contact
-  - `/portfolio/:portfolioType` → Portfolio (graphic-design or retouching)
+| File                                                    | Purpose                                         |
+| ------------------------------------------------------- | ----------------------------------------------- |
+| [routes.ts](app/routes.ts)                              | Route configuration (lines 3-8)                 |
+| [root.tsx](app/root.tsx)                                | Layout wrapper, ErrorBoundary (lines 13-66)     |
+| [portfolio.tsx](app/routes/portfolio.tsx)               | Portfolio route with clientLoader (lines 13-39) |
+| [portfolio/types.ts](app/components/portfolio/types.ts) | PortfolioType enum, Image type                  |
+| [\_devices.scss](app/styles/_devices.scss)              | Responsive breakpoint mixins                    |
 
-### Directory Structure
+## Route Structure
 
-- `/app/components/` - Reusable React components, each with paired SCSS files
-- `/app/routes/` - Page-level route components
-- `/app/styles/` - Global SCSS variables and mixins (\_colors.scss, \_devices.scss)
-- `/app/root.tsx` - Root layout with error boundary
-- `/public/images/` - Portfolio images organized by type
+| Path                        | Route File                                | Description       |
+| --------------------------- | ----------------------------------------- | ----------------- |
+| `/`                         | [about.tsx](app/routes/about.tsx)         | Index/home page   |
+| `/resume`                   | [resume.tsx](app/routes/resume.tsx)       | Resume page       |
+| `/contact`                  | [contact.tsx](app/routes/contact.tsx)     | Contact page      |
+| `/portfolio/:portfolioType` | [portfolio.tsx](app/routes/portfolio.tsx) | Dynamic portfolio |
 
-### Portfolio System
+Portfolio types: `graphic-design`, `retouching` (see [types.ts:6-9](app/components/portfolio/types.ts#L6-L9))
 
-- Two types defined in enum: `GraphicDesign` and `Retouching`
-- Portfolio data stored as static arrays in `/app/components/portfolio/utils.ts`
-- Types defined in `/app/components/portfolio/types.ts`
+## Adding Portfolio Images
 
-### Styling
+1. Add image file to `public/images/{portfolioType}/large/` and `.../thumbs/`
+2. Add entry to image array in [portfolio/utils.ts](app/components/portfolio/utils.ts)
 
-- SCSS with mobile-first responsive design
-- Breakpoint mixins in `/app/styles/_devices.scss`:
-  - Mobile: max-width 480px
-  - Tablet: 481px to 1079px
-  - Desktop: 1080px+
+## Responsive Breakpoints
 
-## Code Style
+Defined in [\_devices.scss](app/styles/_devices.scss):
 
-- **Indent**: 2 spaces
-- **Quotes**: Double quotes
-- **Semicolons**: Required
-- **Line width**: 120 characters
-- **Line endings**: CRLF (Windows)
-- **No explicit `any`**: TypeScript strict mode enabled with `noImplicitAny`
-- **Alphabetize**: object key properties and html attributes where possible
+| Mixin     | Range             |
+| --------- | ----------------- |
+| `mobile`  | max-width: 480px  |
+| `tablet`  | 481px - 1079px    |
+| `desktop` | min-width: 1080px |
+
+Usage: `@include variables.mobile { ... }`
+
+## Additional Documentation
+
+When working on related topics, check these files:
+
+| Topic                                                | File                                                                             |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Design patterns, component organization, conventions | [.claude/docs/architectural_patterns.md](.claude/docs/architectural_patterns.md) |
+
+## Notes
+
+- SSR is disabled (`react-router.config.ts`)
+- React Router types are auto-generated in `.react-router/types/`
+- No testing framework is currently configured

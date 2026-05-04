@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
+    "dev": "react-router dev",
     "lint": "eslint .",
-    "prettier-format": "prettier --config .prettierrc src/**/*.ts* --write",
-    "start": "vite"
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "react-router typegen && tsc"
   },
   "browserslist": [
     "defaults"

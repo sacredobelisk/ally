@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router";
 import { Thumbs } from "./components/thumbs";
-import { Image, PortfolioParams, PortfolioType } from "./types";
+import { type Image, type PortfolioParams, PortfolioType } from "./types";
 
 import "./index.scss";
 

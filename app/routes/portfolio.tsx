@@ -1,7 +1,7 @@
-import { Route } from "../../.react-router/types/app/routes/+types/portfolio";
 import { Portfolio } from "../components/portfolio";
-import { Image, PortfolioType } from "../components/portfolio/types";
+import { type Image, PortfolioType } from "../components/portfolio/types";
 import { designImages, retouchImages } from "../components/portfolio/utils";
+import type { Route } from "./+types/portfolio";
 
 const descriptions: Record<string, string> = {
   [PortfolioType.Retouching]:

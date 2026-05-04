@@ -1,4 +1,4 @@
-import { Image } from "./types";
+import { type Image } from "./types";
 
 export const designImages: Image[] = [
   { filename: "llanerch-diner.jpg", text: "Llanerch Diner" },
@@ -15,7 +15,7 @@ export const designImages: Image[] = [
   { filename: "amalia-margarets.jpg", text: "Amalia Margarets Inc." },
 ];
 
-export const retouchImages = [
+export const retouchImages: Image[] = [
   { filename: "retouch-1.png", text: "Christopher &amp; Banks" },
   { filename: "retouch-2.png", text: "Retouch Work" },
   { filename: "retouch-3.png", text: "Retouch Work" },

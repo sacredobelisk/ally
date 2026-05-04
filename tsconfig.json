@@ -1,29 +1,18 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "allowJs": true,
-    "baseUrl": ".",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
     "jsx": "react-jsx",
     "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "noEmit": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "pretty": true,
     "resolveJsonModule": true,
     "rootDirs": [".", "./.react-router/types"],
     "skipLibCheck": true,
     "strict": true,
-    "strictBindCallApply": true,
-    "strictNullChecks": true,
     "target": "ES2023",
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    "verbatimModuleSyntax": true
   },
   "include": ["app", ".react-router/types/**/*", "app/root.tsx", "app/routes.ts"]
 }

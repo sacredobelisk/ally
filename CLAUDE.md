@@ -18,8 +18,8 @@ Live at: `allisonweinreb.com`
 | Category  | Technology                      |
 | --------- | ------------------------------- |
 | Framework | React Router 7 (meta-framework) |
-| Core      | React 19, TypeScript 5.9        |
-| Build     | Vite 7                          |
+| Core      | React 19, TypeScript 6.0        |
+| Build     | Vite 8                          |
 | Styling   | Sass (SCSS)                     |
 | Linting   | ESLint 9, Prettier 3            |
 
@@ -59,10 +59,10 @@ public/
 ## Essential Commands
 
 ```bash
-npm start            # Vite dev server
+npm run dev          # Vite dev server
 npm run build        # Production build to /build
 npm run lint         # ESLint
-npm run prettier-format  # Format src/**/*.ts*
+npm run typecheck    # Type-gen + tsc
 ```
 
 ## Key Files
@@ -71,7 +71,7 @@ npm run prettier-format  # Format src/**/*.ts*
 | ------------------------------------------------------- | ----------------------------------------------- |
 | [routes.ts](app/routes.ts)                              | Route configuration (lines 3-8)                 |
 | [root.tsx](app/root.tsx)                                | Layout wrapper, ErrorBoundary (lines 13-66)     |
-| [portfolio.tsx](app/routes/portfolio.tsx)               | Portfolio route with clientLoader (lines 13-39) |
+| [portfolio.tsx](app/routes/portfolio.tsx)               | Portfolio route with clientLoader (lines 13-16) |
 | [portfolio/types.ts](app/components/portfolio/types.ts) | PortfolioType enum, Image type                  |
 | [\_devices.scss](app/styles/_devices.scss)              | Responsive breakpoint mixins                    |
 

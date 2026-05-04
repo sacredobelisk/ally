@@ -1,5 +1,5 @@
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
-import { Route } from "../.react-router/types/app/+types/root";
+import type { Route } from "./+types/root";
 import { Header } from "./components/header";
 
 import "./app.scss";

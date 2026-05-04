@@ -23,6 +23,7 @@ export default defineConfig([
   { files: ["**/*.jsonc"], plugins: { json }, language: "json/jsonc", extends: ["json/recommended"] },
   { files: ["**/*.css"], plugins: { css }, language: "css/css", extends: ["css/recommended"] },
 
+  // turn off some rules for react-router generated files
   {
     files: ["**/.react-router/**/*.ts"],
     rules: {
